@@ -1,4 +1,4 @@
-<h2>List of Products</h2>
+<h2>List of Products:</h2>
 
 <table class="table table-bordered">
   <thead>
@@ -15,8 +15,11 @@
         {{ product.unit }}
         <button class="button" (click)="incrementUnit(product)">+</button>
         <button class="button" (click)="decrementUnit(product)" [disabled]="product.unit==1">-</button>
+        <button class="button" (click)="addToCart(product)">Add to Cart</button>
       </td>
       <td>{{ product.price }}</td>
     </tr>
   </tbody>
 </table>
+
+<button class="button">Checkout</button>

@@ -27,5 +27,6 @@ export class ProductsListComponent implements OnInit {
 
   addToCart(product: Product): void {
     this.addedProducts.push(product);
+    console.log(this.addedProducts);
   }
 }
