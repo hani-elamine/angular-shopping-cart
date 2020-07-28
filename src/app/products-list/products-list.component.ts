@@ -10,6 +10,7 @@ import { Product } from '../product';
 export class ProductsListComponent implements OnInit {
 
   products = PRODUCTS;
+  addedProducts: Product[] = [];
 
   constructor() { }
 
@@ -23,4 +24,8 @@ export class ProductsListComponent implements OnInit {
   decrementUnit(product: Product): void {
     product.unit -= 1;
   }
- }
+
+  addToCart(product: Product): void {
+    this.addedProducts.push(product);
+  }
+}
