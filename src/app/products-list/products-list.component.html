@@ -11,7 +11,11 @@
   <tbody>
     <tr *ngFor="let product of products">
       <td>{{ product.name }}</td>
-      <td>{{ product.unit }}</td>
+      <td>
+        {{ product.unit }}
+        <button class="button" (click)="incrementUnit(product)">+</button>
+        <button class="button" (click)="decrementUnit(product)" [disabled]="product.unit==1">-</button>
+      </td>
       <td>{{ product.price }}</td>
     </tr>
   </tbody>

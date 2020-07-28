@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PRODUCTS } from '../mock-products';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-products-list',
@@ -15,4 +16,11 @@ export class ProductsListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-}
+  incrementUnit(product: Product): void {
+    product.unit += 1;
+  }
+
+  decrementUnit(product: Product): void {
+    product.unit -= 1;
+  }
+ }
