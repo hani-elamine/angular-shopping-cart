@@ -1,6 +1,6 @@
 <h2>List of Products</h2>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Product Name</th>
@@ -10,9 +10,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let product of products">
-      <th>{{ product.name }}</th>
-      <th>{{ product.unit }}</th>
-      <th>{{ product.price }}</th>
+      <td>{{ product.name }}</td>
+      <td>{{ product.unit }}</td>
+      <td>{{ product.price }}</td>
     </tr>
   </tbody>
 </table>

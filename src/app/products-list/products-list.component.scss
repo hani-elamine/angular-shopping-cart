@@ -1,8 +1,18 @@
-@import '../../styles.scss';
+.table {
+  width: 100%;
+  margin-bottom: 1.529411765em;;
+  border-spacing: 0;
+  border: 1px solid black;
+}
 
-thead{
-  th{
-    background-color: $primarycolor;
-    color: $white;
-  }
+.table th,
+.table td {
+    padding: .470588235em;
+    text-align: left;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.table th {
+    font-weight: bold;
 }
