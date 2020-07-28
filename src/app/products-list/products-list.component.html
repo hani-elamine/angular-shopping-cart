@@ -1,1 +1,18 @@
-<p>products-list works!</p>
+<h2>List of Products</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Unit (kg)</th>
+      <th>Price (per kg in AED)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <th>{{ product.name }}</th>
+      <th>{{ product.unit }}</th>
+      <th>{{ product.price }}</th>
+    </tr>
+  </tbody>
+</table>
