@@ -6,20 +6,19 @@
       <th>Product Name</th>
       <th>Unit (kg)</th>
       <th>Price (per kg in AED)</th>
+      <th>Buy</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of products">
+    <tr *ngFor="let product of allProducts">
       <td>{{ product.name }}</td>
       <td>
         {{ product.unit }}
-        <button class="button" (click)="incrementUnit(product)">+</button>
-        <button class="button" (click)="decrementUnit(product)" [disabled]="product.unit==1">-</button>
-        <button class="button" (click)="addToCart(product)">Add to Cart</button>
       </td>
       <td>{{ product.price }}</td>
+      <td><button class="button" (click)="addToCart(product)">Add to Cart</button> </td>
     </tr>
   </tbody>
 </table>
 
-<button>Checkout</button>
+<button routerLink="/cart">Checkout</button>
