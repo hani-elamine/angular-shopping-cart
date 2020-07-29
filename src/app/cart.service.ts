@@ -29,6 +29,14 @@ export class CartService {
     product.unit -= 1;
   }
 
+  getTotalPrice(): number {
+    let totalPrice = 0;
+    this.products.forEach( (product) => {
+      totalPrice += (product.unit * product.price);
+    });
+    return totalPrice;
+  }
+
   clearCart(): void {
     this.products = [];
   }
