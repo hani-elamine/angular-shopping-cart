@@ -1,10 +1,31 @@
 <h2>Cart</h2>
 
-<ul>
-  <li *ngFor="let product of cartProducts">
-    {{ product.name }}    x{{ product.unit }}    AED{{product.unit * product.price}}
-  </li>
-</ul>
+<table *ngIf="cartProducts.length" class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Unit (kg)</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of cartProducts">
+      <td>{{ product.name }}</td>
+      <td>
+        {{ product.unit }}
+      </td>
+      <td>{{ product.unit * product.price }}</td>
+      <td>
+        <button class="button" (click)="incrementUnit(product)">+</button>
+        <button class="button" (click)="decrementUnit(product)" [disabled]="product.unit==1">-</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-<span>Total Price: {{ totalPrice }}</span>
+<span *ngIf="!cartProducts.length">Your cart is empty!</span>
 
+<br>
+
+<span>Total Price: AED {{ totalPrice }}</span>

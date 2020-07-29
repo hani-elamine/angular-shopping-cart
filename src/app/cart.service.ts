@@ -18,8 +18,9 @@ export class CartService {
   }
 
   addToCart(product: Product): void {
+    console.log(this.addedProducts);
     let added = false;
-    this.addedProducts.every( (p) => {
+    this.addedProducts.forEach( (p) => {
       if (p.id === product.id) {
         p.unit += 1;
         added = true;
