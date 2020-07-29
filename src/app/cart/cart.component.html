@@ -1,31 +1,32 @@
 <h2>Cart</h2>
 
-<table *ngIf="cartProducts.length" class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Product Name</th>
-      <th>Unit (kg)</th>
-      <th>Price</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let product of cartProducts">
-      <td>{{ product.name }}</td>
-      <td>
-        {{ product.unit }}
-      </td>
-      <td>{{ product.unit * product.price }}</td>
-      <td>
-        <button class="button" (click)="incrementUnit(product)">+</button>
-        <button class="button" (click)="decrementUnit(product)" [disabled]="product.unit==1">-</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="cartProducts.length">
+  <table  class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Unit (kg)</th>
+        <th>Price</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of cartProducts">
+        <td>{{ product.name }}</td>
+        <td>
+          {{ product.unit }}
+        </td>
+        <td>{{ product.unit * product.price }}</td>
+        <td>
+          <button class="button" (click)="incrementUnit(product)">+</button>
+          <button class="button" (click)="decrementUnit(product)">-</button>
+          <button class="button" (click)="removeFromCart(product)">Remove from cart</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <span>Total Price: AED {{ totalPrice }}</span>
+</div>
 
 <span *ngIf="!cartProducts.length">Your cart is empty!</span>
 
-<br>
-
-<span>Total Price: AED {{ totalPrice }}</span>
