@@ -9,7 +9,6 @@ import { PRODUCTS } from './mock-products';
 })
 export class CartService {
   private addedProducts: Product[] = [];
-  // private totalPrice = 0;
   private totalPrice$: BehaviorSubject<number> = new BehaviorSubject(0);
 
   constructor(private notificationService: NotificationService) { }
@@ -19,19 +18,15 @@ export class CartService {
   }
 
   addToCart(product: Product): void {
-    let added = false;
-    this.addedProducts.forEach( (p) => {
-      if (p.id === product.id) {
-        p.unit += 1;
-        added = true;
-        return;
-      }
-    });
-    if (!added) {
-      this.addedProducts.push(product);
-    }
-    this.calculateTotalPrice();
     this.notificationService.add(product.name);
+
+    if (this.addedProducts.indexOf(product) !== -1) {
+      product.unit += 1;
+      this.calculateTotalPrice();
+      return;
+    }
+    this.addedProducts.push(product);
+    this.calculateTotalPrice();
   }
 
   removeFromCart(product: Product): void {
