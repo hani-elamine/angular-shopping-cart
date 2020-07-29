@@ -1,7 +1,7 @@
 <h2>Cart</h2>
 
 <div *ngIf="cartProducts.length">
-  <table  class="table table-bordered">
+  <table>
     <thead>
       <tr>
         <th>Product Name</th>
@@ -26,6 +26,9 @@
     </tbody>
   </table>
   <span>Total Price: AED {{ totalPrice }}</span>
+  <br>
+  <button routerLink="/products">Continue Shopping</button>
+  <button> Checkout </button>
 </div>
 
 <span *ngIf="!cartProducts.length">Your cart is empty!</span>
