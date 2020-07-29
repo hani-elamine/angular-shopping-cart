@@ -1,26 +1,30 @@
-# ShoppingCart
+# Shopping Cart
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.4.
+## Table of Contents
 
-## Development server
+- [Key Features](#key-features)
+- [Stack](#stack)
+- [Setup](#setup)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Key Features
 
-## Code scaffolding
+- View list of products and add content to cart on one page
+- View cart content on another page
+- Modify and remove cart contents from cart page
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Stack
 
-## Build
+- Angular 10
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Setup
 
-## Running unit tests
+You need to have [Node.js](https://nodejs.org/) and Angular 10 installed.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Install Angular 10 `npm i -g @angular/cli@10.0.4`
+2. Clone this repository or [download zip](https://github.com/ahmadchaer/angular-shopping-cart/archive/master.zip).
+3. Install dependencies: `npm install`.
+4. Run locally: `ng serve --open`.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help
 
