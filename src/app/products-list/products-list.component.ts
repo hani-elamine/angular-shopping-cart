@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { CartService } from '../cart.service';
-import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-products-list',
@@ -11,10 +10,8 @@ import { NotificationService } from '../notification.service';
 export class ProductsListComponent implements OnInit {
 
   products: Product[] = [];
-  addedProducts: Product[] = [];
 
-  constructor(private cartService: CartService,
-              private notificationService: NotificationService) { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -26,15 +23,14 @@ export class ProductsListComponent implements OnInit {
   }
 
   incrementUnit(product: Product): void {
-    product.unit += 1;
+    this.cartService.incrementUnit(product);
   }
 
   decrementUnit(product: Product): void {
-    product.unit -= 1;
+    this.cartService.decrementUnit(product);
   }
 
   addToCart(product: Product): void {
-    this.addedProducts.push(product);
-    this.notificationService.add('$(product.name) added to cart successfuly');
+    this.cartService.addToCart(product);
   }
 }

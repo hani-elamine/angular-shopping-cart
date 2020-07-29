@@ -8,12 +8,28 @@ import { PRODUCTS } from './mock-products';
   providedIn: 'root'
 })
 export class CartService {
+  products: Product[] = [];
 
   constructor(private notificationService: NotificationService) { }
 
   getProducts(): Observable<Product[]> {
-    // testing notifications
-    this.notificationService.add('Products Loaded');
     return of(PRODUCTS);
+  }
+
+  addToCart(product: Product): void {
+    this.products.push(product);
+    this.notificationService.add('$(product.name) added to cart successfuly');
+  }
+
+  incrementUnit(product: Product): void {
+    product.unit += 1;
+  }
+
+  decrementUnit(product: Product): void {
+    product.unit -= 1;
+  }
+
+  clearCart(): void {
+    this.products = [];
   }
 }
