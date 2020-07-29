@@ -8,7 +8,8 @@ import { PRODUCTS } from './mock-products';
   providedIn: 'root'
 })
 export class CartService {
-  products: Product[] = [];
+  private addedProducts: Product[] = [];
+  private totalPrice = 0;
 
   constructor(private notificationService: NotificationService) { }
 
@@ -17,8 +18,27 @@ export class CartService {
   }
 
   addToCart(product: Product): void {
-    this.products.push(product);
-    this.notificationService.add('$(product.name) added to cart successfuly');
+    let added = false;
+    this.addedProducts.every( (p) => {
+      if (p.id === product.id) {
+        p.unit += 1;
+        added = true;
+        return;
+      }
+    });
+    if (!added) {
+      this.addedProducts.push(product);
+    }
+    this.calculateTotalPrice();
+    this.notificationService.add(product.name);
+  }
+
+  getCartProducts(): Observable<Product[]> {
+    return of(this.addedProducts);
+  }
+
+  getTotalPrice(): number {
+    return this.totalPrice;
   }
 
   incrementUnit(product: Product): void {
@@ -29,15 +49,14 @@ export class CartService {
     product.unit -= 1;
   }
 
-  getTotalPrice(): number {
-    let totalPrice = 0;
-    this.products.forEach( (product) => {
-      totalPrice += (product.unit * product.price);
+  calculateTotalPrice(): void {
+    this.totalPrice = 0;
+    this.addedProducts.forEach( (product) => {
+      this.totalPrice += (product.unit * product.price);
     });
-    return totalPrice;
   }
 
   clearCart(): void {
-    this.products = [];
+    this.addedProducts = [];
   }
 }
