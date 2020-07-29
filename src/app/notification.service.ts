@@ -11,10 +11,8 @@ export class NotificationService {
   // tslint:disable-next-line: typedef
   add(productName: string) {
     this.notifications.push(productName + ' added to cart');
-  }
-
-  // tslint:disable-next-line: typedef
-  clear() {
-    this.notifications = [];
+    setTimeout(() => {
+      this.notifications.shift();
+    }, 2000);
   }
 }
