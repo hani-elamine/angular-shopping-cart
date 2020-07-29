@@ -13,6 +13,6 @@ export class NotificationService {
     this.notifications.push(productName + ' added to cart');
     setTimeout(() => {
       this.notifications.shift();
-    }, 2000);
+    }, 1500);
   }
 }
